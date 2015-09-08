@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Quick Test</title>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div id="widget"></div>
+    </div>
+
+
+
+    <script type="text/javascript" src="dist/main.js"> </script>
+
+
+
+    <!-- template can be included using server -->
+    <script type="text/html" id="widget_tmpl">
+      <input type="text" id="newTask"><button id="addButton">Add</button>
+      <% if(typeof tasks !== 'undefined' && tasks.length) { %>
+        <ul>
+        <% for ( var i = 0; i < tasks.length; i++ ) { %>
+          <li><%=tasks[i]%> <button class="deleteButton" data-index="<%=i %>">Delete</button></li>
+        <% } %>
+        </ul>
+        <%=i%> item(s) in list
+      <% } else { %>
+        <div>no items in list!</div>
+      <% } %>
+    </script>
+
+
+  </body>
+
+</html>
